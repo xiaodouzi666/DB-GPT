@@ -70,6 +70,7 @@ LLM_MODEL_CONFIG = {
     # https://platform.moonshot.cn/docs/
     "moonshot_proxyllm": "moonshot_proxyllm",
     "ollama_proxyllm": "ollama_proxyllm",
+    "xinference_proxyllm": "xinference_proxyllm",
     # https://platform.deepseek.com/api-docs/
     "deepseek_proxyllm": "deepseek_proxyllm",
     "llama-2-7b": os.path.join(MODEL_PATH, "Llama-2-7b-chat-hf"),
@@ -204,6 +205,7 @@ EMBEDDING_MODEL_CONFIG = {
     # Common HTTP embedding model
     "proxy_http_openapi": "proxy_http_openapi",
     "proxy_ollama": "proxy_ollama",
+    "proxy_xinference": "proxy_xinference",
 }
 
 

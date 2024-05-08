@@ -13,6 +13,7 @@ def __lazy_import(name):
         "MoonshotLLMClient": "dbgpt.model.proxy.llms.moonshot",
         "OllamaLLMClient": "dbgpt.model.proxy.llms.ollama",
         "DeepseekLLMClient": "dbgpt.model.proxy.llms.deepseek",
+        "xinferenceClient": "dbgpt.model.proxy.llms.xinference",
     }
 
     if name in module_path:

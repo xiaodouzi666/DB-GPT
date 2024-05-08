@@ -317,7 +317,25 @@ class DeepseekProxyLLMModelAdapter(ProxyLLMModelAdapter):
         from dbgpt.model.proxy.llms.deepseek import deepseek_generate_stream
 
         return deepseek_generate_stream
+    
+class XinferenceProxyLLMModelAdapter(ProxyLLMModelAdapter):
+    def support_async(self) -> bool:
+        return True
 
+    def do_match(self, lower_model_name_or_path: Optional[str] = None):
+        return lower_model_name_or_path in ["xinference_proxyllm", "xinference"]
+
+    def get_llm_client_class(
+        self, params: ProxyModelParameters
+    ) -> Type[ProxyLLMClient]:
+        from dbgpt.model.proxy.llms.xinference import XinferenceLLMClient
+
+        return XinferenceLLMClient
+
+    def get_async_generate_stream_function(self, model, model_path: str):
+        from dbgpt.model.proxy.llms.xinference import xinference_generate_stream
+
+        return xinference_generate_stream
 
 register_model_adapter(OpenAIProxyLLMModelAdapter)
 register_model_adapter(TongyiProxyLLMModelAdapter)
@@ -331,3 +349,4 @@ register_model_adapter(BaichuanProxyLLMModelAdapter)
 register_model_adapter(YiProxyLLMModelAdapter)
 register_model_adapter(MoonshotProxyLLMModelAdapter)
 register_model_adapter(DeepseekProxyLLMModelAdapter)
+register_model_adapter(XinferenceProxyLLMModelAdapter)
